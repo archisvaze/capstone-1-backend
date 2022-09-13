@@ -5,7 +5,7 @@ const StudentSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    quizes: [{ type: mongoose.Schema.Types.ObjectId, ref: "Quiz" }],
+    quiz: { type: mongoose.Schema.Types.ObjectId, ref: "Quiz" },
     score: {
         type: Number
     },

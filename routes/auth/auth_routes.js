@@ -1,8 +1,49 @@
 const express = require("express");
-const Teacher_Collection = require("../../models/teacher_schema")
+const Teacher_Collection = require("../../models/teacher_schema");
+const Student_Collection = require("../../models/student_schema");
+const Quiz_Collection = require("../../models/quiz_schema")
 const bcrypt = require("bcryptjs")
 
 let router = express.Router();
+
+//create new Student and Add student to Quiz
+
+router.post("/student", async (req, res) => {
+    let { name, quiz } = req.body
+    let newStudent = new Student_Collection({
+        name, quiz
+    });
+    try {
+        console.log("Finding the Quiz...");
+        let existingQuiz = await Quiz_Collection.findById(quiz);
+        if (existingQuiz == null || existingQuiz == undefined) {
+            return res.status(400).json({
+                error: "Quiz id is incorrect or quiz does not exist"
+            })
+        }
+  
+        let savedStudent = await newStudent.save();
+        let updatedQuiz = JSON.parse(JSON.stringify(existingQuiz));
+        updatedQuiz["students"].push(savedStudent._id)
+
+        //pushing student inside the quiz
+        let response = await Quiz_Collection.findOneAndReplace(
+            { _id: quiz },
+            updatedQuiz
+        )
+        if (response) {
+            return res.status(200).json({ message: "Student was added to Quiz" })
+        } else {
+            return res.status(400).json({ error: "Student cannot be added" })
+        }
+    } catch (error) {
+        return res.status(400).json({
+            error: error.message
+        })
+
+    }
+
+})
 
 //create new Teacher Account
 router.post("/signup", async (req, res) => {
