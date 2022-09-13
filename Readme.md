@@ -5,9 +5,9 @@
 - 9:40 am - project init
 - 9:42 am - project init done
 
-### Mileston 1 - Create Schema and basic routes for Teacher, Student and Quiz
+### Milestone 1 - Create Schema and basic routes for Teacher, Student and Quiz
 Estimated Time: 3 hours
-- 9:44 am - working on setup
+- 9:44 am - started working on setup
 - 10:10 am - created basic schemas for teacher, student and quiz
 - 10:53 am - working on routes for adding question to the quiz
 - 10:57 am - Taking a break
@@ -17,3 +17,6 @@ Estimated Time: 3 hours
 Milestone 1 Complete in: 2 hours 50 mins
 
 
+### Milestone 2 - Create and setup React App with Login/Signup and Create Quiz and display All Quizes created by Teacher
+Estimated Time: 4 hours 
+- 1:30pm - started working on setup
