@@ -3,6 +3,7 @@ const Teacher_Collection = require("../../models/teacher_schema");
 const Student_Collection = require("../../models/student_schema");
 const Quiz_Collection = require("../../models/quiz_schema")
 const bcrypt = require("bcryptjs")
+const jwt = require("jsonwebtoken")
 
 let router = express.Router();
 
@@ -90,8 +91,13 @@ router.post("/login", async (req, res) => {
         let teacher = JSON.parse(JSON.stringify(existingTeacher));
         const validPassword = await bcrypt.compare(password, teacher.password);
         if (validPassword) {
+            const payload = {
+                id: teacher._id,
+                email: teacher.email
+            }
+            const accessToken = jwt.sign(payload, process.env.ACCESS_TOKEN_SECRET);
             teacher.password = null
-            return res.status(200).json(teacher)
+            return res.status(200).json({teacher, accessToken})
         } else {
             return res.status(401).json({ error: "Invalid Password" })
         }

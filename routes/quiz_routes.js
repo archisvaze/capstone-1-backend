@@ -104,4 +104,23 @@ router.get("/:id", async (req, res) => {
 })
 
 
+//get all quizes of a techer
+
+router.get("/teacher/:id", async (req, res) => {
+    try {
+
+        let quizes = await Quiz_Collection.find({ teacher: req.params.id })
+            .populate("questions")
+            .populate("students")
+
+        return res.status(200).json(quizes)
+
+    } catch (error) {
+        return res.status(400).json({
+            error: error.message
+        })
+    }
+})
+
+
 module.exports = router;

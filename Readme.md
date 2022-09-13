@@ -24,5 +24,14 @@ Estimated Time: 4 hours
 - 1:50pm - Added Login Route
 - 2:15pm - initiated React App, setup up routes, header and nav
 - 2:36pm - working on Login page
+- 2:48pm - working on saving teacher after login
+- 3:06pm - creating new Route to show all quiz of a teacher 
+- 4:10pm - new quiz can be created from client
+
+Milestone 2 Complete in: 2 hours 40 mins
+
+
+
+
 
 
