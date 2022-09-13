@@ -23,7 +23,7 @@ router.post("/", async (req, res) => {
         }
         let savedQuiz = await newQuiz.save();
         let updatedTeacher = JSON.parse(JSON.stringify(existingTeacher));
-        updatedTeacher["quizes"].push(savedQuiz._id)
+        updatedTeacher["quizes"].unshift(savedQuiz._id)
         let response = await Teacher_Collection.findOneAndReplace(
             { _id: teacher },
             updatedTeacher
@@ -108,7 +108,6 @@ router.get("/:id", async (req, res) => {
 
 router.get("/teacher/:id", async (req, res) => {
     try {
-
         let quizes = await Quiz_Collection.find({ teacher: req.params.id })
             .populate("questions")
             .populate("students")
@@ -122,5 +121,23 @@ router.get("/teacher/:id", async (req, res) => {
     }
 })
 
+
+//delete a quiz
+
+router.get("/delete/:id", async (req, res) => {
+    try {
+        let response = await Quiz_Collection.deleteOne({ _id: req.params.id });
+        if (response.deletedCount == 1) {
+            return res.status(200).json({ message: "Quiz deleted" })
+        }
+        else {
+            return res.status(400).json({ error: "Cannot not delete Quiz" })
+        }
+    } catch (error) {
+        return res.status(400).json({
+            error: error.message
+        })
+    }
+})
 
 module.exports = router;

@@ -31,6 +31,14 @@ Estimated Time: 4 hours
 Milestone 2 Complete in: 2 hours 40 mins
 
 
+### Milestone 3 - Add/Remove Questions fomr Quiz/ Delete Quiz
+Estimated Time: 4 hours
+- 4:26pm - started working on delete quiz
+- 5:10pm - delete quiz added on server and client
+
+
+
+
 
 
 
