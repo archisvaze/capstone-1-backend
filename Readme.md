@@ -11,7 +11,6 @@ Estimated Time: 3 hours
 - 10:10 am - created basic schemas for teacher, student and quiz
 - 10:53 am - working on routes for adding question to the quiz
 - 10:57 am - Taking a break
-
 - 11:40 am - start working on routes for adding question to the quiz
 - 12:30 am - done creating schemas and adding basic routes for teacher, student and quiz  
 
