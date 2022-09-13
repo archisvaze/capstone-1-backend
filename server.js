@@ -34,3 +34,13 @@ mongoose.connect(url, connectionParams)
     .catch((err) => {
         console.log(err)
     })
+
+
+
+//routes
+const quizRouter = require("./routes/quiz_routes")
+app.use("/quiz", quizRouter);
+
+const authRouter = require("./routes/auth/auth_routes")
+app.use("/auth", authRouter);
+

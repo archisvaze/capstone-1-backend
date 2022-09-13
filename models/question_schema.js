@@ -10,7 +10,8 @@ const QuestionSchema = new mongoose.Schema({
         required: true
     },
     choices: [{ type: String }],
-    solution: { type: String }
+    solution: { type: String },
+    quiz: { type: mongoose.Schema.Types.ObjectId, ref: "Quiz" }
 }, {
     timestamps: true
 }
