@@ -21,7 +21,7 @@ router.post("/student", async (req, res) => {
                 error: "Quiz id is incorrect or quiz does not exist"
             })
         }
-  
+
         let savedStudent = await newStudent.save();
         let updatedQuiz = JSON.parse(JSON.stringify(existingQuiz));
         updatedQuiz["students"].push(savedStudent._id)
@@ -75,6 +75,33 @@ router.post("/signup", async (req, res) => {
         })
 
     }
+})
+
+//login for teacher
+router.post("/login", async (req, res) => {
+    let { email, password } = req.body;
+    console.log("Login in Teacher...")
+
+    try {
+        const existingTeacher = await Teacher_Collection.findOne({ email: email });
+        if (existingTeacher == null || existingTeacher == undefined) {
+            return res.status(400).json({ error: "Email does not exist!" })
+        }
+        let teacher = JSON.parse(JSON.stringify(existingTeacher));
+        const validPassword = await bcrypt.compare(password, teacher.password);
+        if (validPassword) {
+            teacher.password = null
+            return res.status(200).json(teacher)
+        } else {
+            return res.status(401).json({ error: "Invalid Password" })
+        }
+
+    } catch (error) {
+        return res.status(400).json({
+            error: error.message
+        })
+    }
+
 })
 
 
