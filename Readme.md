@@ -34,6 +34,8 @@ Milestone 2 Complete in: 2 hours 40 mins
 Estimated Time: 4 hours
 - 4:26pm - started working on delete quiz
 - 5:10pm - delete quiz added on server and client
+- 5:30 - added alert to show various alerts/errors in the UI
+- 5:30 - signing OFF for the day
 
 
 
