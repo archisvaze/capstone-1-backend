@@ -45,6 +45,9 @@ Estimated Time: 4 hours
 Estimated Time: 4 hours
 - 8:37am - started working on frontend to ad/remove quiestions
 - 9:00am - creating route to remove question
+- 10:10am -finished add/remove question from quiz
+
+Milestone 3 Complete in: 2 hours 40 mins
 
 
 
