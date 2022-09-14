@@ -1,5 +1,7 @@
 # Capstone #1 Server
 
+# Day1
+
 ## TimeChart
 - 9:30 am - creating a db diagram
 - 9:40 am - project init
@@ -37,7 +39,11 @@ Estimated Time: 4 hours
 - 5:30pm - added alert to show various alerts/errors in the UI
 - 5:30pm - signing OFF for the day
 
+# Day2
 
+### Milestone 3 - Add/Remove Questions fomr Quiz/ Delete Quiz
+Estimated Time: 4 hours
+- 8:37am - started working on frontend to ad/remove quiestions
 
 
 
