@@ -44,6 +44,7 @@ Estimated Time: 4 hours
 ### Milestone 3 - Add/Remove Questions fomr Quiz/ Delete Quiz
 Estimated Time: 4 hours
 - 8:37am - started working on frontend to ad/remove quiestions
+- 9:00am - creating route to remove question
 
 
 

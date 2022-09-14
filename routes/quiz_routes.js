@@ -22,17 +22,7 @@ router.post("/", async (req, res) => {
             })
         }
         let savedQuiz = await newQuiz.save();
-        let updatedTeacher = JSON.parse(JSON.stringify(existingTeacher));
-        updatedTeacher["quizes"].unshift(savedQuiz._id)
-        let response = await Teacher_Collection.findOneAndReplace(
-            { _id: teacher },
-            updatedTeacher
-        )
-        if (response) {
-            return res.status(200).json({ message: "Quiz was created and linked with Teacher" })
-        } else {
-            return res.status(400).json({ error: "Quiz was not linked" })
-        }
+        return res.status(400).json(savedQuiz)
     } catch (error) {
         return res.status(400).json({
             error: error.message
@@ -71,6 +61,45 @@ router.post("/:id/newquestion", async (req, res) => {
         } else {
             return res.status(400).json({ error: "Quesion cannot be added" })
         }
+    } catch (error) {
+        return res.status(400).json({
+            error: error.message
+        })
+
+    }
+})
+
+//remove a question for a Quiz
+router.post("/:id/removequestion", async (req, res) => {
+    let { questionID } = req.body;
+    console.log("Removing Question started...")
+    try {
+        console.log("Finding the Quiz...");
+        let existingQuiz = await Quiz_Collection.findById(req.params.id);
+        if (existingQuiz == null || existingQuiz == undefined) {
+            return res.status(400).json({
+                error: "Quiz id is incorrect or quiz does not exist"
+            })
+        }
+        let updatedQuiz = JSON.parse(JSON.stringify(existingQuiz));
+        console.log("removing question from the quiz...")
+        for (let i = 0; i < updatedQuiz.questions.length; i++) {
+            if (updatedQuiz.questions[i] == questionID) {
+                updatedQuiz.questions.splice(i, 1);
+                console.log(updatedQuiz)
+                let response = await Quiz_Collection.findOneAndReplace(
+                    { _id: req.params.id },
+                    updatedQuiz
+                )
+                if (response) {
+                    return res.status(200).json({ message: "Question was removed from Quiz" })
+                } else {
+                    return res.status(400).json({ error: "Quesion cannot be removed" })
+                }
+            }
+        }
+        return res.status(400).json({ error: "Question does not exist" })
+
     } catch (error) {
         return res.status(400).json({
             error: error.message

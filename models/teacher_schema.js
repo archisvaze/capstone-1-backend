@@ -13,8 +13,6 @@ const TeacherSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    quizes: [{ type: mongoose.Schema.Types.ObjectId, ref: "Quiz" }],
-
 }, {
     timestamps: true
 }
