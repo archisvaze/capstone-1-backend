@@ -51,6 +51,8 @@ Estimated Time: 4 hours
 - 11:45am - resumed
 - 12:15pm - added Edit-quiz page
 
+Milestone 3 Complete in: 3 hours 45 mins
+
 
 
 
