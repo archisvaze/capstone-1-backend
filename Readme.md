@@ -47,6 +47,9 @@ Estimated Time: 4 hours
 - 9:00am - creating route to remove question
 - 10:10am - finished add/remove question from quiz
 - 10:30am - started working on creating new Page for editing quiz
+- 11:00am - break
+- 11:45am - resumed
+- 12:15pm - added Edit-quiz page
 
 
 
