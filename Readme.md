@@ -59,6 +59,7 @@ Estimated Time: 4 hours
 2:00pm - worked on socket.io connections
 4:18pm - working on adding student to rooms using socket.io
 5:30pm - done with creating Quiz Rooms
+6:22pm - moved Room logic to the server
 
 Milestone 4 Complete in: 4 house
 
