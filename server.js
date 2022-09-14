@@ -38,6 +38,7 @@ app.use("/quiz", quizRouter);
 const authRouter = require("./routes/auth/auth_routes")
 app.use("/auth", authRouter);
 
+let rooms = [];
 
 
 //socket io
@@ -54,30 +55,56 @@ io.on("connection", (socket) => {
 
 
     socket.on("create-room", (data) => {
+        let newRoom = {
+            clientID: data.clientID,
+            quizID: data.quiz._id,
+            students: []
+        }
+        for (let i = 0; i < rooms.length; i++) {
+            if (rooms[i].quizID === newRoom.quizID) {
+                rooms.splice(i, 1, newRoom)
+            }
+        }
+        data.room = newRoom;
+        rooms.push(newRoom);
         console.log("create room")
         socket.join(data.quiz._id);
         io.to(data.clientID).emit("room-created", data)
+
     })
 
     socket.on("join-room", (data) => {
         console.log("join requested")
+        for (let room of rooms) {
+            if (room.quizID == data.quizID) {
+                console.log("room found!")
+                if (room.students.includes(data.name)) {
+                    console.log("name already in room")
+                    io.to(data.clientID).emit("join-request-denied", data)
+                    return;
+                } else {
+                    console.log("join granted")
+                    io.to(data.clientID).emit("join-request-granted", data)
+                    socket.join(data.quizID);
+                    io.to(data.quizID).emit("student-connected", data)
+                    room.students.push(data.name)
+                }
+            }
+        }
         io.to(data.quizID).emit("join-request", data);
     })
 
-    socket.on("join-denied", data => {
-        console.log("join denied")
-        io.to(data.clientID).emit("join-request-denied", data)
-
-    })
-    socket.on("join-granted", data => {
-        console.log("join granted")
-        io.to(data.clientID).emit("join-request-granted", data)
-        socket.join(data.quizID);
-        io.to(data.quizID).emit("student-connected", data)
-    })
 
 
 
-
-    socket.on("disconnect", () => console.log("Client Disconnected " + socket.id))
+    socket.on("disconnect", () => {
+        console.log("Client Disconnected " + socket.id);
+        for (let i = 0; i < rooms.length; i++) {
+            if (rooms[i].clientID === socket.id) {
+                rooms.splice(i, 1);
+                return;
+            }
+        }
+    }
+    )
 })
