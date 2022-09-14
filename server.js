@@ -11,12 +11,6 @@ const httpServer = app.listen(process.env.PORT || 8000, () => {
     console.log("Express is running on port " + port);
 })
 
-const io = require("socket.io")(httpServer, {
-    cors: {
-        origin: "*",
-    }
-})
-
 //connect to Mongoose
 
 const mongoose = require("mongoose");
@@ -44,3 +38,26 @@ app.use("/quiz", quizRouter);
 const authRouter = require("./routes/auth/auth_routes")
 app.use("/auth", authRouter);
 
+
+
+//socket io
+const io = require("socket.io")(httpServer, {
+    cors: {
+        origin: "*",
+    }
+})
+
+io.on("connection", (socket) => {
+    console.log("Quiz Room Connected " + socket.id);
+
+    socket.on("create-room", (data) => {
+        socket.join(data.quiz._id);
+        socket.emit("room-created", data)
+
+    })
+
+
+
+
+    socket.on("disconnect", () => console.log("Quiz Room Disconnected " + socket.id))
+})

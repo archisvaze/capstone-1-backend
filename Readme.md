@@ -53,6 +53,11 @@ Estimated Time: 4 hours
 
 Milestone 3 Complete in: 3 hours 45 mins
 
+### Milestone 4 - Work on creating Quiz Rooms 
+Estimated Time: 4 hours
+2:00pm - worked on socket.io connections
+
+
 
 
 
