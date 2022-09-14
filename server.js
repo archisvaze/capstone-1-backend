@@ -56,6 +56,12 @@ io.on("connection", (socket) => {
 
     })
 
+    socket.on("join-room", (data) => {
+        socket.join(data.quizID);
+        socket.emit("room-joined", data);
+        io.to(data.quizID).emit("student-connected", data)
+    })
+
 
 
 
