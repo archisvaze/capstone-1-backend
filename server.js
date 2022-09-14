@@ -48,22 +48,36 @@ const io = require("socket.io")(httpServer, {
 })
 
 io.on("connection", (socket) => {
-    console.log("Quiz Room Connected " + socket.id);
+    console.log("Client Connected " + socket.id);
+    socket.emit("react-connection", socket.id)
+
+
 
     socket.on("create-room", (data) => {
+        console.log("create room")
         socket.join(data.quiz._id);
-        socket.emit("room-created", data)
-
+        io.to(data.clientID).emit("room-created", data)
     })
 
     socket.on("join-room", (data) => {
+        console.log("join requested")
+        io.to(data.quizID).emit("join-request", data);
+    })
+
+    socket.on("join-denied", data => {
+        console.log("join denied")
+        io.to(data.clientID).emit("join-request-denied", data)
+
+    })
+    socket.on("join-granted", data => {
+        console.log("join granted")
+        io.to(data.clientID).emit("join-request-granted", data)
         socket.join(data.quizID);
-        socket.emit("room-joined", data);
         io.to(data.quizID).emit("student-connected", data)
     })
 
 
 
 
-    socket.on("disconnect", () => console.log("Quiz Room Disconnected " + socket.id))
+    socket.on("disconnect", () => console.log("Client Disconnected " + socket.id))
 })
