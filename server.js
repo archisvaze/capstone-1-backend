@@ -58,7 +58,8 @@ io.on("connection", (socket) => {
         let newRoom = {
             clientID: data.clientID,
             quizID: data.quiz._id,
-            students: []
+            students: [],
+            status: "not-started"
         }
         for (let i = 0; i < rooms.length; i++) {
             if (rooms[i].quizID === newRoom.quizID) {
@@ -82,7 +83,12 @@ io.on("connection", (socket) => {
                     console.log("name already in room")
                     io.to(data.clientID).emit("join-request-denied", data)
                     return;
-                } else {
+                }
+                else if (room.status !== "not-started") {
+                    io.to(data.clientID).emit("room-busy", data)
+                    return;
+                }
+                else {
                     console.log("join granted")
 
                     //adding student to room
@@ -102,14 +108,19 @@ io.on("connection", (socket) => {
     //quiz logic
 
     socket.on("start-quiz", data => {
-        io.to(data.quizID).emit("quiz-started", data)
+        for (let i = 0; i < rooms.length; i++) {
+            if (rooms[i].quizID === data.quizID) {
+                rooms[i].status = "started"
+                io.to(data.quizID).emit("quiz-started", data)
+            }
+        }
     })
 
     socket.on("next-question", data => {
         io.to(data.quizID).emit("question-nexted", data)
     })
 
-    socket.on("student-answer", data =>{
+    socket.on("student-answer", data => {
         io.to(data.quizID).emit("student-answered", data)
     })
 
