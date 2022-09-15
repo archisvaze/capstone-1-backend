@@ -67,6 +67,7 @@ Milestone 4 Complete in: 4 house
 # Day3
 ### Milestone 5 - Work on creating Adding Students to A Quiz and Display Questions 
 Estimated Time: 4 hours
+- 8:30am - started working on quiz room logic
 
 
 
