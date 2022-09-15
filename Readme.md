@@ -92,6 +92,16 @@ report : [
 Estimated Time: 4 hours
 
 - 12:52am - started workgin on end quiz screen for students
+- 2:50pm - working on getting student scores for teacher screen
+- 4:30pm - done adding scores to teacher and worked on CSS
+
+Milestone 5 Complete in: 3 hours 30 mins
+
+
+### Milestone 6 - ADD CSS TO THE WHOLE APP
+Estimated Time: 5 hours
+
+- 4:30pm - working on css
 
 
 
