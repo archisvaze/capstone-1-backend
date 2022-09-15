@@ -71,18 +71,8 @@ Estimated Time: 4 hours
 - 9:05am - Students can now join a quiz room and teacher will see connected students list
 - 9:42am - Students can now see questions and teacher can control the flow of the quiz
 - 9:48am - working on storing student answers in the quiz by sending answer and student name to server, then socket will relay that info to teacher and teacher will store that data in the report object
-
-report = {
-    {
-        student: archis,
-        answers: ['1', true, 'blue']
-    },
-     {
-        student: ron,
-        answers: ['5', null, 'red']
-    },
-
-}
+- 10:02am - taking a quick break
+- 10:13am - started working on storing student answers
 
 
 

@@ -92,23 +92,14 @@ io.on("connection", (socket) => {
                     socket.join(data.quizID);
 
                     io.to(data.quizID).emit("student-connected", room)
-                
+
                 }
             }
         }
     })
 
 
-
-    socket.on("destroy-room", data => {
-        for (let i = 0; i < rooms.length; i++) {
-            if (rooms[i].quizID === data.quiz._id) {
-                rooms.splice(i, 1);
-            }
-        }
-    })
-
-
+    //quiz logic
 
     socket.on("start-quiz", data => {
         io.to(data.quizID).emit("quiz-started", data)
@@ -118,8 +109,18 @@ io.on("connection", (socket) => {
         io.to(data.quizID).emit("question-nexted", data)
     })
 
+    socket.on("student-answer", data =>{
+        io.to(data.quizID).emit("student-answered", data)
+    })
 
     //cleanup code on client exit
+    socket.on("destroy-room", data => {
+        for (let i = 0; i < rooms.length; i++) {
+            if (rooms[i].quizID === data.quiz._id) {
+                rooms.splice(i, 1);
+            }
+        }
+    })
     socket.on("disconnect", () => {
         console.log("Client Disconnected " + socket.id);
         for (let i = 0; i < rooms.length; i++) {
