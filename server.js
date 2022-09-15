@@ -84,7 +84,7 @@ io.on("connection", (socket) => {
                     return;
                 } else {
                     console.log("join granted")
-                    
+
                     //adding student to room
                     room.students.push(data.name)
 
@@ -107,6 +107,18 @@ io.on("connection", (socket) => {
             }
         }
     })
+
+
+
+    socket.on("start-quiz", data => {
+        io.to(data.quizID).emit("quiz-started", data)
+    })
+
+    socket.on("next-question", data => {
+        io.to(data.quizID).emit("question-nexted", data)
+    })
+
+
     //cleanup code on client exit
     socket.on("disconnect", () => {
         console.log("Client Disconnected " + socket.id);
