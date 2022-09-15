@@ -76,7 +76,7 @@ io.on("connection", (socket) => {
     socket.on("join-room", (data) => {
         console.log("join requested")
         for (let room of rooms) {
-            if (room.quizID == data.quizID) {
+            if (room.quizID === data.quizID) {
                 console.log("room found!")
                 if (room.students.includes(data.name)) {
                     console.log("name already in room")
@@ -84,19 +84,30 @@ io.on("connection", (socket) => {
                     return;
                 } else {
                     console.log("join granted")
+                    
+                    //adding student to room
+                    room.students.push(data.name)
+
                     io.to(data.clientID).emit("join-request-granted", data)
                     socket.join(data.quizID);
-                    io.to(data.quizID).emit("student-connected", data)
-                    room.students.push(data.name)
+
+                    io.to(data.quizID).emit("student-connected", room)
+                
                 }
             }
         }
-        io.to(data.quizID).emit("join-request", data);
     })
 
 
 
-
+    socket.on("destroy-room", data => {
+        for (let i = 0; i < rooms.length; i++) {
+            if (rooms[i].quizID === data.quiz._id) {
+                rooms.splice(i, 1);
+            }
+        }
+    })
+    //cleanup code on client exit
     socket.on("disconnect", () => {
         console.log("Client Disconnected " + socket.id);
         for (let i = 0; i < rooms.length; i++) {
