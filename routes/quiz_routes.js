@@ -22,7 +22,7 @@ router.post("/", async (req, res) => {
             })
         }
         let savedQuiz = await newQuiz.save();
-        return res.status(400).json({ message: "New Quiz created " + savedQuiz._id })
+        return res.status(200).json({ message: "New Quiz created " + savedQuiz._id })
     } catch (error) {
         return res.status(400).json({
             error: error.message
