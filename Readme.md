@@ -73,6 +73,10 @@ Estimated Time: 4 hours
 - 9:48am - working on storing student answers in the quiz by sending answer and student name to server, then socket will relay that info to teacher and teacher will store that data in the report object
 - 10:02am - taking a quick break
 - 10:13am - started working on storing student answers
+- 10:53am - added feature where if quiz has already started or ended, then students cannot enter room
+- 11:00am - done with quiz progress
+- 11:15am - start working on Quiz Ending Logic
+
 
 
 report : [
