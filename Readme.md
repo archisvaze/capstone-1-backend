@@ -102,7 +102,12 @@ Milestone 5 Complete in: 3 hours 30 mins
 Estimated Time: 5 hours
 
 - 4:30pm - working on css
-- 5:36pm - working on css, done for the day.
+- 5:36pm - working on css
+
+- 8:55pm - resumed Working on CSS
+- 9:20pm - added media querries for responsive design
+- 9:20pm - done for the day
+
 
 
 
