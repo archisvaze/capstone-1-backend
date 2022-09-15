@@ -59,7 +59,8 @@ io.on("connection", (socket) => {
             clientID: data.clientID,
             quizID: data.quiz._id,
             students: [],
-            status: "not-started"
+            status: "not-started",
+            report: []
         }
         for (let i = 0; i < rooms.length; i++) {
             if (rooms[i].quizID === newRoom.quizID) {
@@ -93,7 +94,7 @@ io.on("connection", (socket) => {
 
                     //adding student to room
                     room.students.push(data.name)
-
+                    room.report.push({ student: data.name, answers: [] })
                     io.to(data.clientID).emit("join-request-granted", data)
                     socket.join(data.quizID);
 
@@ -121,7 +122,26 @@ io.on("connection", (socket) => {
     })
 
     socket.on("student-answer", data => {
+        for (let room of rooms) {
+            if (room.quizID === data.quizID) {
+                for (let student_report of room.report) {
+                    if (student_report.student === data.answer.student) {
+                        student_report.answers.push({ question: data.answer.question, answer: data.answer.answer })
+                        break;
+                    }
+                }
+            }
+        }
         io.to(data.quizID).emit("student-answered", data)
+    })
+
+    //send quiz report after quiz is over
+    socket.on("quiz-over", data => {
+        for (let room of rooms) {
+            if (room.quizID === data.quizID) {
+                io.to(data.quizID).emit("report", room)
+            }
+        }
     })
 
     //cleanup code on client exit
