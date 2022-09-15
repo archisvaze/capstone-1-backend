@@ -61,7 +61,7 @@ Estimated Time: 4 hours
 - 5:30pm - done with creating Quiz Rooms
 - 6:22pm - moved Room logic to the server
 
-Milestone 4 Complete in: 4 house
+Milestone 4 Complete in: 4 hours
 
 
 # Day3
@@ -76,7 +76,9 @@ Estimated Time: 4 hours
 - 10:53am - added feature where if quiz has already started or ended, then students cannot enter room
 - 11:00am - done with quiz progress
 - 11:11am - started working on Quiz Ending Logic
+- 12:17am - now teacher will see a report of the student answers
 
+Milestone 5 Complete in: 3 hours 50 mins
 
 quiz report will look something like this:
 report : [
@@ -85,6 +87,11 @@ report : [
     answers : [{question: dsfdfsd, answer: sasd}, {}, {}]
    }
 ]
+
+### Milestone 6 - Work on showing Quiz End screen to student and add logic to keep track of scores
+Estimated Time: 4 hours
+
+
 
 
 
