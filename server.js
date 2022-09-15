@@ -56,11 +56,12 @@ io.on("connection", (socket) => {
 
     socket.on("create-room", (data) => {
         let newRoom = {
+            quiz: data.quiz,
             clientID: data.clientID,
             quizID: data.quiz._id,
             students: [],
             status: "not-started",
-            report: []
+            report: [],
         }
         for (let i = 0; i < rooms.length; i++) {
             if (rooms[i].quizID === newRoom.quizID) {
@@ -122,16 +123,27 @@ io.on("connection", (socket) => {
     })
 
     socket.on("student-answer", data => {
+        let point = 0;
         for (let room of rooms) {
             if (room.quizID === data.quizID) {
+
                 for (let student_report of room.report) {
+
+
+                    //get score
+                    for (let question of room.quiz.questions) {
+                        if (question.question === data.answer.question && question.solution === data.answer.answer) {
+                            point = 1;
+                        }
+                    }
+
                     if (student_report.student === data.answer.student) {
-                        student_report.answers.push({ question: data.answer.question, answer: data.answer.answer })
-                        break;
+                        student_report.answers.push({ question: data.answer.question, answer: data.answer.answer, point: point })
                     }
                 }
             }
         }
+
         io.to(data.quizID).emit("student-answered", data)
     })
 

@@ -91,6 +91,7 @@ report : [
 ### Milestone 6 - Work on showing Quiz End screen to student and add logic to keep track of scores
 Estimated Time: 4 hours
 
+- 12:52am - started workgin on end quiz screen for students
 
 
 
