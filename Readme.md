@@ -69,6 +69,20 @@ Milestone 4 Complete in: 4 house
 Estimated Time: 4 hours
 - 8:30am - started working on quiz room logic
 - 9:05am - Students can now join a quiz room and teacher will see connected students list
+- 9:42am - Students can now see questions and teacher can control the flow of the quiz
+- 9:48am - working on storing student answers in the quiz by sending answer and student name to server, then socket will relay that info to teacher and teacher will store that data in the report object
+
+report = {
+    {
+        student: archis,
+        answers: ['1', true, 'blue']
+    },
+     {
+        student: ron,
+        answers: ['5', null, 'red']
+    },
+
+}
 
 
 
