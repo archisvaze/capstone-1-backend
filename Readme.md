@@ -55,17 +55,18 @@ Milestone 3 Complete in: 3 hours 45 mins
 
 ### Milestone 4 - Work on creating Quiz Rooms 
 Estimated Time: 4 hours
-1:30pm - socket setup
-2:00pm - worked on socket.io connections
-4:18pm - working on adding student to rooms using socket.io
-5:30pm - done with creating Quiz Rooms
-6:22pm - moved Room logic to the server
+- 1:30pm - socket setup
+- 2:00pm - worked on socket.io connections
+- 4:18pm - working on adding student to rooms using socket.io
+- 5:30pm - done with creating Quiz Rooms
+- 6:22pm - moved Room logic to the server
 
 Milestone 4 Complete in: 4 house
 
+
+# Day3
 ### Milestone 5 - Work on creating Adding Students to A Quiz and Display Questions 
-
-
+Estimated Time: 4 hours
 
 
 
