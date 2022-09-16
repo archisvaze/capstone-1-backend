@@ -103,15 +103,15 @@ Estimated Time: 5 hours
 
 - 4:30pm - working on css
 - 5:36pm - working on css
-
 - 8:55pm - resumed Working on CSS
 - 9:20pm - added media querries for responsive design
 - 9:20pm - done for the day
 
 # Day4
-- 8:23 am - working on the Edit quiz page design
-- 9:38 am - working on Quiz Page for Teacher
-- 10:00 am - working on Quiz Page for Student
+- 8:23am - working on the Edit quiz page design
+- 9:38am - working on Quiz Page for Teacher
+- 10:00am - working on Quiz Page for Student
+- 10:13am - start wokring on Report Page after Quiz ends for Teacher 
 
 
 
