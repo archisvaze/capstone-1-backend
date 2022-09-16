@@ -112,6 +112,7 @@ Estimated Time: 5 hours
 - 9:38am - working on Quiz Page for Teacher
 - 10:00am - working on Quiz Page for Student
 - 10:13am - start wokring on Report Page after Quiz ends for Teacher 
+- 10:30am - Taking a break 
 
 
 
