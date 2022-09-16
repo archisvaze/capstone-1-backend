@@ -113,6 +113,8 @@ Estimated Time: 5 hours
 - 10:00am - working on Quiz Page for Student
 - 10:13am - start wokring on Report Page after Quiz ends for Teacher 
 - 10:30am - Taking a break 
+- 10:45am - Working on report page css
+- 11:00am - Teachers Page CSS Done
 
 
 
