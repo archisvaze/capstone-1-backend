@@ -110,7 +110,8 @@ Estimated Time: 5 hours
 
 # Day4
 - 8:23 am - working on the Edit quiz page design
-- 9:38 am - working on Start Quiz Page for Teacher
+- 9:38 am - working on Quiz Page for Teacher
+- 10:00 am - working on Quiz Page for Student
 
 
 
