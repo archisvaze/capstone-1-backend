@@ -115,10 +115,15 @@ Estimated Time: 5 hours
 - 10:30am - Taking a break 
 - 10:45am - Working on report page css
 - 11:00am - Teachers Page CSS Done
-- 12:18pm - Students Page CSS Done
+- 12:20pm - Students Page CSS Done
 
 Milestone 5 Complete in: ~ 5 hours
 
 
 ### Milestone 6 - Signup Page
-Estimated Time: 2 hours
+Estimated Time: 1 hour
+- 12:20pm - start working on signup page
+- 12:50pm - Signup Page Done
+
+Milestone 6 Complete in: ~  30 mins
+
