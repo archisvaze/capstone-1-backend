@@ -4,7 +4,7 @@ const Question_Collection = require("../models/question_schema");
 const Teacher_Collection = require("../models/teacher_schema")
 
 let router = express.Router();
-
+ 
 //create new Quiz
 router.post("/", async (req, res) => {
     let { name, teacher } = req.body;

@@ -136,6 +136,8 @@ Estimated Time: 3 hours
 - 1:40pm - start working on showing student answered on teachers screen
 - 2:11pm - teachers can now see students who have answered
 - 2:12pm - working on Timer 
+- 3:03pm - added Timer
+- 3:07pm - start working on saving report
 
 
 

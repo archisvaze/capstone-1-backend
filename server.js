@@ -38,6 +38,9 @@ app.use("/quiz", quizRouter);
 const authRouter = require("./routes/auth/auth_routes")
 app.use("/auth", authRouter);
 
+const reportRouter = require("./routes/report_routes") 
+app.use("/report", reportRouter)
+
 let rooms = [];
 
 
