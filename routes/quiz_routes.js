@@ -115,7 +115,6 @@ router.get("/:id", async (req, res) => {
     try {
         let existingQuiz = await Quiz_Collection.findById(req.params.id)
             .populate("questions")
-            .populate("students")
             .populate("teacher");
         if (existingQuiz == null || existingQuiz == undefined) {
             return res.status(400).json({
@@ -139,8 +138,6 @@ router.get("/teacher/:id", async (req, res) => {
     try {
         let quizes = await Quiz_Collection.find({ teacher: req.params.id })
             .populate("questions")
-            .populate("students")
-
         return res.status(200).json(quizes)
 
     } catch (error) {
