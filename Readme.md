@@ -133,6 +133,9 @@ Milestone 6 Complete in: ~  30 mins
 
 Estimated Time: 3 hours
 
-- 1:40am - start working on showing student answered on teachers screen
+- 1:40pm - start working on showing student answered on teachers screen
+- 2:11pm - teachers can now see students who have answered
+- 2:12pm - working on Timer 
+
 
 
