@@ -50,7 +50,7 @@ router.post("/:id/newquestion", async (req, res) => {
         let savedQuestion = await newQuestion.save();
         let updatedQuiz = JSON.parse(JSON.stringify(existingQuiz));
         console.log("Pushing question to the quiz...")
-        updatedQuiz["questions"].unshift(savedQuestion._id);
+        updatedQuiz["questions"].push(savedQuestion._id);
 
         let response = await Quiz_Collection.findOneAndReplace(
             { _id: req.params.id },

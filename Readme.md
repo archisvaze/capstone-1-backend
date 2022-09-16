@@ -127,3 +127,12 @@ Estimated Time: 1 hour
 
 Milestone 6 Complete in: ~  30 mins
 
+
+
+### Milestone 7 - Show Student answer on teachers screen while quiz is playing and create and show Reports
+
+Estimated Time: 3 hours
+
+- 1:40am - start working on showing student answered on teachers screen
+
+
