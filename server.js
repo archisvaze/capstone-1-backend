@@ -65,6 +65,7 @@ io.on("connection", (socket) => {
             students: [],
             status: "not-started",
             report: [],
+            nanoID: data.quiz.nanoID,
         }
         for (let i = 0; i < rooms.length; i++) {
             if (rooms[i].quizID === newRoom.quizID) {
@@ -74,7 +75,7 @@ io.on("connection", (socket) => {
         data.room = newRoom;
         rooms.push(newRoom);
         console.log("create room")
-        socket.join(data.quiz._id);
+        socket.join(data.quiz.nanoID);
         io.to(data.clientID).emit("room-created", data)
 
     })
@@ -82,7 +83,7 @@ io.on("connection", (socket) => {
     socket.on("join-room", (data) => {
         console.log("join requested")
         for (let room of rooms) {
-            if (room.quizID === data.quizID) {
+            if (room.nanoID === data.nanoID) {
                 console.log("room found!")
                 if (room.students.includes(data.name)) {
                     console.log("name already in room")
@@ -95,14 +96,14 @@ io.on("connection", (socket) => {
                 }
                 else {
                     console.log("join granted")
-
+                    data.quizID = room.quizID
                     //adding student to room
                     room.students.push(data.name)
                     room.report.push({ student: data.name, answers: [] })
                     io.to(data.clientID).emit("join-request-granted", data)
-                    socket.join(data.quizID);
+                    socket.join(data.nanoID);
 
-                    io.to(data.quizID).emit("student-connected", room)
+                    io.to(data.nanoID).emit("student-connected", room)
 
                 }
             }
@@ -116,13 +117,13 @@ io.on("connection", (socket) => {
         for (let i = 0; i < rooms.length; i++) {
             if (rooms[i].quizID === data.quizID) {
                 rooms[i].status = "started"
-                io.to(data.quizID).emit("quiz-started", data)
+                io.to(data.nanoID).emit("quiz-started", data)
             }
         }
     })
 
     socket.on("next-question", data => {
-        io.to(data.quizID).emit("question-nexted", data)
+        io.to(data.nanoID).emit("question-nexted", data)
     })
 
     socket.on("student-answer", data => {
@@ -146,15 +147,14 @@ io.on("connection", (socket) => {
                 }
             }
         }
-
-        io.to(data.quizID).emit("student-answered", data)
+        io.to(data.nanoID).emit("student-answered", data)
     })
 
     //send quiz report after quiz is over
     socket.on("quiz-over", data => {
         for (let room of rooms) {
             if (room.quizID === data.quizID) {
-                io.to(data.quizID).emit("report", room)
+                io.to(data.nanoID).emit("report", room)
             }
         }
     })
