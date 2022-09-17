@@ -8,6 +8,7 @@ const QuizSchema = new mongoose.Schema({
     teacher: { type: mongoose.Schema.Types.ObjectId, ref: "Teacher" },
     questions: [{ type: mongoose.Schema.Types.ObjectId, ref: "Question" }],
 
+    nanoID: { type: String }
 
 }, {
     timestamps: true

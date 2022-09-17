@@ -156,7 +156,8 @@ Milestone 9 Complete in: ~ 5 hours 30 mins
 
 Estimated Time: 6 hours
 
-- 1:00pm - start working
+- 1:00pm - started working
+- 1:15pm - fixed eslint errors and cleaned up the code
 
 
 

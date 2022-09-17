@@ -1,17 +1,18 @@
 const express = require("express");
 const Quiz_Collection = require("../models/quiz_schema")
 const Question_Collection = require("../models/question_schema");
-const Teacher_Collection = require("../models/teacher_schema")
+const Teacher_Collection = require("../models/teacher_schema");
+const nanoid = require("nanoid")
 
 let router = express.Router();
- 
+
 //create new Quiz
 router.post("/", async (req, res) => {
     let { name, teacher } = req.body;
     console.log("Creating a new Quiz...")
 
     let newQuiz = new Quiz_Collection({
-        name, teacher
+        name, teacher, nanoID: `${nanoid(5)}`
     });
 
     try {
