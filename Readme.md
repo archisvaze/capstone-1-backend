@@ -152,7 +152,7 @@ Estimated Time: 3 hours
 
 Milestone 9 Complete in: ~ 5 hours 30 mins
 
-### Milestone 10 Add nanoID to make a PIN and enable photo uploads
+### Milestone 10 Cleanup the code a bit and Add NANOID to make a PIN and enable photo uploads
 
 Estimated Time: 6 hours
 
