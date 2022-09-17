@@ -144,6 +144,7 @@ Estimated Time: 3 hours
 - 7:30am - working on adding reports
 - 7:57am - reports are now automatically saved to server after quiz ends!
 - 7:58am - taking a break
+- 8:20am - resume work
 
 
 
