@@ -92,7 +92,11 @@ router.post("/:id/removequestion", async (req, res) => {
                     { _id: req.params.id },
                     updatedQuiz
                 )
-                if (response) {
+                //remove question from DB
+                let response2 = await Question_Collection.findOneAndDelete({
+                    _id: questionID
+                })
+                if (response && response2) {
                     return res.status(200).json({ message: "Question was removed from Quiz" })
                 } else {
                     return res.status(400).json({ error: "Quesion cannot be removed" })
@@ -153,7 +157,12 @@ router.get("/teacher/:id", async (req, res) => {
 
 router.get("/delete/:id", async (req, res) => {
     try {
+        //delete quiz
         let response = await Quiz_Collection.deleteOne({ _id: req.params.id });
+        //delete all questions assoiciated with the quiz
+        await Question_Collection.deleteMany({
+            quiz: req.params.id
+        })
         if (response.deletedCount == 1) {
             return res.status(200).json({ message: "Quiz deleted" })
         }
