@@ -145,6 +145,13 @@ Estimated Time: 3 hours
 - 7:57am - reports are now automatically saved to server after quiz ends!
 - 7:58am - taking a break
 - 8:20am - resume work
+- 8:23am - working on fetching all reports from server
+- 9:11am - done with displaying report cards
+- 9:12am - working on route for deleting a report from DB
+- 9:32am - Done with Reports
+
+Milestone 7 Complete in: ~ 5 hours 30 mins
+
 
 
 

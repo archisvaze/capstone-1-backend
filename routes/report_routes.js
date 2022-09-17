@@ -7,10 +7,10 @@ let router = express.Router();
 
 //create a new report
 router.post("/", async (req, res) => {
-    let { quiz, teacher, report } = req.body;
+    let { quiz, teacher, report, question_count } = req.body;
 
     let newReport = new Report_Collection({
-        quiz, teacher, report
+        quiz, teacher, report, question_count
     })
 
     try {
@@ -34,8 +34,41 @@ router.post("/", async (req, res) => {
         })
 
     }
+})
 
 
+//get all reports of a techer
+
+router.get("/:id", async (req, res) => {
+    try {
+        let reports = await Report_Collection.find({ teacher: req.params.id })
+            .populate("quiz")
+            .populate("teacher")
+        return res.status(200).json(reports)
+
+    } catch (error) {
+        return res.status(400).json({
+            error: error.message
+        })
+    }
+})
+
+//delete a report
+
+router.get("/delete/:id", async (req, res) => {
+    try {
+        let response = await Report_Collection.deleteOne({ _id: req.params.id });
+        if (response.deletedCount == 1) {
+            return res.status(200).json({ message: "Report deleted" })
+        }
+        else {
+            return res.status(400).json({ error: "Cannot not delete Report" })
+        }
+    } catch (error) {
+        return res.status(400).json({
+            error: error.message
+        })
+    }
 })
 
 
