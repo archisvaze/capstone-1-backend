@@ -142,6 +142,10 @@ Estimated Time: 3 hours
 
 - Saturday (17/9) - Extra Work
 - 7:30am - working on adding reports
+- 7:57am - reports are now automatically saved to server after quiz ends!
+- 7:58am - taking a break
+
+
 
 
 
