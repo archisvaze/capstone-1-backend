@@ -140,5 +140,8 @@ Estimated Time: 3 hours
 - 3:07pm - start working on saving report
 - 5:33pm - reports are remaining, will work on them tommorrow, signing off for the day
 
+- Saturday (17/9) - Extra Work
+- 7:30am - working on adding reports
+
 
 
