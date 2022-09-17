@@ -95,10 +95,10 @@ Estimated Time: 4 hours
 - 2:50pm - working on getting student scores for teacher screen
 - 4:30pm - done adding scores to teacher and worked on CSS
 
-Milestone 5 Complete in: 3 hours 30 mins
+Milestone 6 Complete in: 3 hours 30 mins
 
 
-### Milestone 6 - ADD CSS TO THE WHOLE APP
+### Milestone 7 - ADD CSS TO THE WHOLE APP
 Estimated Time: 5 hours
 
 - 4:30pm - working on css
@@ -117,19 +117,19 @@ Estimated Time: 5 hours
 - 11:00am - Teachers Page CSS Done
 - 12:20pm - Students Page CSS Done
 
-Milestone 5 Complete in: ~ 5 hours
+Milestone 7 Complete in: ~ 5 hours
 
 
-### Milestone 6 - Signup Page
+### Milestone 8 - Signup Page
 Estimated Time: 1 hour
 - 12:20pm - start working on signup page
 - 12:50pm - Signup Page Done
 
-Milestone 6 Complete in: ~  30 mins
+Milestone 8 Complete in: ~  30 mins
 
 
 
-### Milestone 7 - Show Student answer on teachers screen while quiz is playing and create and show Reports
+### Milestone 9 - Show Student answer on teachers screen while quiz is playing and create and show Reports
 
 Estimated Time: 3 hours
 
@@ -150,7 +150,13 @@ Estimated Time: 3 hours
 - 9:12am - working on route for deleting a report from DB
 - 9:32am - Done with Reports
 
-Milestone 7 Complete in: ~ 5 hours 30 mins
+Milestone 9 Complete in: ~ 5 hours 30 mins
+
+### Milestone 10 Add nanoID to make a PIN and enable photo uploads
+
+Estimated Time: 6 hours
+
+- 1:00pm - start working
 
 
 
