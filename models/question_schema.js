@@ -7,7 +7,8 @@ const QuestionSchema = new mongoose.Schema({
     },
     choices: [{ type: String }],
     solution: { type: String },
-    quiz: { type: mongoose.Schema.Types.ObjectId, ref: "Quiz" }
+    quiz: { type: mongoose.Schema.Types.ObjectId, ref: "Quiz" },
+    image: { type: String },
 }, {
     timestamps: true
 }

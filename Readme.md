@@ -160,6 +160,8 @@ Estimated Time: 6 hours
 - 1:15pm - fixed eslint errors and cleaned up the code
 - 3:00pm - done with nanoID and Pins, only photo uploads is left. Taking a break.
 
+- 3:45pm - working on image uploads for question
+- 4:10pm - done with image uploads 
 
 
 

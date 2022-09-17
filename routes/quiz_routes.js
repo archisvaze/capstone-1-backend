@@ -35,11 +35,11 @@ router.post("/", async (req, res) => {
 
 //create new Question for a Quiz
 router.post("/:id/newquestion", async (req, res) => {
-    let { question, type, choices, solution } = req.body;
+    let { question, type, choices, solution, image } = req.body;
     console.log("Creating a new Question...")
     try {
         let newQuestion = new Question_Collection({
-            question, type, choices, solution, quiz: req.params.id
+            question, type, choices, solution, quiz: req.params.id, image
         });
         console.log("Finding the Quiz...");
         let existingQuiz = await Quiz_Collection.findById(req.params.id);
