@@ -162,7 +162,12 @@ Estimated Time: 6 hours
 
 - 3:45pm - working on image uploads for question
 - 4:10pm - done with image uploads 
+- 4:30pm - done for the day comepleted milestone 10
 
+Milestone 10 Complete in: ~ 3 hours 
+
+
+### Milestone 11 Implement Tokens and Authorization
 
 
 

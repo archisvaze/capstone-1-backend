@@ -124,6 +124,7 @@ io.on("connection", (socket) => {
 
     socket.on("next-question", data => {
         io.to(data.nanoID).emit("question-nexted", data)
+        console.log("next question")
     })
 
     socket.on("student-answer", data => {
