@@ -1,10 +1,11 @@
 require("dotenv").config()
+const jwt = require("jsonwebtoken")
 const express = require("express");
 const cors = require("cors");
 const app = express();
 app.use(cors());
 app.use(express.urlencoded({ extended: false }))
-app.use(express.json({ limit: "5mb", extended: true }))
+app.use(express.json({ limit: "1000kb", extended: true }))
 
 const httpServer = app.listen(process.env.PORT || 8000, () => {
     const port = httpServer.address().port;
@@ -32,11 +33,15 @@ mongoose.connect(url, connectionParams)
 
 
 //routes
-const quizRouter = require("./routes/quiz_routes")
-app.use("/quiz", quizRouter);
-
 const authRouter = require("./routes/auth/auth_routes")
 app.use("/auth", authRouter);
+
+//call middleware
+
+app.use(authenticateMiddleware)
+
+const quizRouter = require("./routes/quiz_routes")
+app.use("/quiz", quizRouter);
 
 const reportRouter = require("./routes/report_routes")
 app.use("/report", reportRouter)
@@ -97,6 +102,7 @@ io.on("connection", (socket) => {
                 else {
                     console.log("join granted")
                     data.quizID = room.quizID
+                    data.quizData = room.quiz;
                     //adding student to room
                     room.students.push(data.name)
                     room.report.push({ student: data.name, answers: [] })
@@ -179,3 +185,28 @@ io.on("connection", (socket) => {
     }
     )
 })
+
+
+
+function authenticateMiddleware(req, res, next) {
+    const authHeader = req.headers["authorization"];
+
+    if (authHeader === undefined) {
+        return res.status(401).json({ error: "No token was provided" })
+    }
+
+    const token = authHeader.split(" ")[1];
+    if (token === undefined) {
+        return res.status(401).json({ error: "Proper token was not provided" })
+    }
+
+    try {
+
+        const payload = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
+        console.log(payload)
+        next();
+
+    } catch (error) {
+        return res.status(401).json({ error: error })
+    }
+}
