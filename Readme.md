@@ -167,7 +167,13 @@ Estimated Time: 6 hours
 Milestone 10 Complete in: ~ 3 hours 
 
 
-### Milestone 11 Implement Tokens and Authorization
+### Milestone 11 Implement Token Auth
+
+Estimated Time: 2 Hours
+
+- Sunday (18/9) - Extra Work
+- 11:50am - started working on token auth
+
 
 
 
