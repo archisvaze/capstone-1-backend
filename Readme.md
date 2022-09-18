@@ -173,8 +173,12 @@ Estimated Time: 2 Hours
 
 - Sunday (18/9) - Extra Work
 - 11:50am - started working on token auth
+- 12:45pm - done with token
+- 12:45pm - catch payload too large error 
+- 2:00pm - done with token and added some artwork
+- 2:15pm - fixed some padding and margins
 
-
+Milestone 11 Complete in: ~ 2 hours 
 
 
 
