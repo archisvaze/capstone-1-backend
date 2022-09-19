@@ -191,4 +191,4 @@ Estimated Time: 1 Hour
 - 8:44am - Connecting frontend to Heroku
 - 9:51am - Switched to render.com
 
-
+Milestone 12 Complete in: ~ 2 hours 
