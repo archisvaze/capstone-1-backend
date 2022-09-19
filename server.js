@@ -3,7 +3,6 @@ const jwt = require("jsonwebtoken")
 const express = require("express");
 const cors = require("cors");
 const app = express();
-app.use(cors());
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json({ limit: "1000kb", extended: true }))
 
@@ -16,7 +15,6 @@ const httpServer = app.listen(process.env.PORT || 8000, () => {
 const io = require("socket.io")(httpServer, {
     cors: {
         origin: "*",
-        credentials:true, 
     }
 })
 //connect to Mongoose
@@ -37,7 +35,7 @@ mongoose.connect(url, connectionParams)
         console.log(err)
     })
 
-
+app.use(cors());
 
 //routes
 const authRouter = require("./routes/auth/auth_routes")
