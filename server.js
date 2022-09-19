@@ -16,6 +16,7 @@ const httpServer = app.listen(process.env.PORT || 8000, () => {
 const io = require("socket.io")(httpServer, {
     cors: {
         origin: "*",
+        credentials:true, 
     }
 })
 //connect to Mongoose
