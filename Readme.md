@@ -180,6 +180,10 @@ Estimated Time: 2 Hours
 
 Milestone 11 Complete in: ~ 2 hours 
 
+# Day 5
 
+### Milestone 12 Upload to Heroku and general bug fixes and CSS improvements
 
+Estimated Time: 1 Hour
+- 8:10am - Fixing bottom padding on all pages
 
