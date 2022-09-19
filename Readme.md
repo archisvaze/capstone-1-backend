@@ -201,3 +201,4 @@ Milestone 12 Complete in: ~ 2 hours
 - 11:52am - working on quiz DOWN route
 - 1:00pm - questions order can now be changed
 - 1:30pm - NanoID is not 6 digit number
+- 2:30pm - Final fixes
