@@ -198,6 +198,6 @@ Milestone 12 Complete in: ~ 2 hours
 
 - 10:26am - Working on Move Questions UP and DOWN in Edit Quiz serverside
 - 10:40am - Question move UP route set, taking a break
-
 - 11:52am - working on quiz DOWN route
 - 1:00pm - questions order can now be changed
+- 1:30pm - NanoID is not 6 digit number
