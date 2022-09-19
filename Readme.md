@@ -186,4 +186,6 @@ Milestone 11 Complete in: ~ 2 hours
 
 Estimated Time: 1 Hour
 - 8:10am - Fixing bottom padding on all pages
+- 8:30am - added a socket to verify room status.
+
 
