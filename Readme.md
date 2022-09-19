@@ -192,3 +192,11 @@ Estimated Time: 1 Hour
 - 9:51am - Switched to render.com
 
 Milestone 12 Complete in: ~ 2 hours 
+
+
+### Extra Stuff
+
+- 10:26am - Working on Move Questions UP and DOWN in Edit Quiz serverside
+- 10:40am - Question move UP route set, taking a break
+
+- 11:52am - working on quiz DOWN route

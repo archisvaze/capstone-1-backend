@@ -176,4 +176,44 @@ router.get("/delete/:id", async (req, res) => {
     }
 })
 
+
+//move Question UP inside array inside the quiz obj
+
+router.post("/:id/move-question-up/:questionID/", async (req, res) => {
+    //find Quiz
+    try {
+        let existingQuiz = await Quiz_Collection.findById(req.params.id);
+
+        let updatedQuiz = JSON.parse(JSON.stringify(existingQuiz));
+        for (let i = 0; i < updatedQuiz.questions.length; i++) {
+            if (updatedQuiz.questions[i]._id === req.params.questionID) {
+                console.log("question found! moving question UP...")
+
+                let currQuestion = JSON.parse(JSON.stringify(updatedQuiz.questions)[i]);
+                let quizUP = JSON.parse(JSON.stringify(updatedQuiz.questions)[i - 1]);
+
+                updatedQuiz.questions.splice(i - 1, 1, currQuestion);
+                updatedQuiz.question.splice(i, 1, quizUP);
+
+                //replace the quiz with updatedQuiz
+                let response = await Quiz_Collection.findOneAndReplace(
+                    { _id: req.params.id },
+                    updatedQuiz
+                )
+                if (response) {
+                    return res.status(200).json({ message: "Question was moved UP" })
+                }
+                else {
+                    return res.status(400).json({ error: "Question cannot be moved UP" })
+                }
+
+            }
+        }
+    } catch (error) {
+        return res.status(400).json({
+            error: error.message
+        })
+    }
+})
+
 module.exports = router;
