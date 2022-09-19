@@ -200,5 +200,5 @@ Milestone 12 Complete in: ~ 2 hours
 - 10:40am - Question move UP route set, taking a break
 - 11:52am - working on quiz DOWN route
 - 1:00pm - questions order can now be changed
-- 1:30pm - NanoID is not 6 digit number
+- 1:30pm - NanoID/RoomID is now a 6 digit number
 - 2:30pm - Final fixes
