@@ -179,22 +179,26 @@ router.get("/delete/:id", async (req, res) => {
 
 //move Question UP inside array inside the quiz obj
 
-router.post("/:id/move-question-up/:questionID/", async (req, res) => {
+router.get("/:id/move-question-up/:questionID/", async (req, res) => {
     //find Quiz
+    console.log("finding Quiz...")
     try {
         let existingQuiz = await Quiz_Collection.findById(req.params.id);
 
         let updatedQuiz = JSON.parse(JSON.stringify(existingQuiz));
-        for (let i = 0; i < updatedQuiz.questions.length; i++) {
-            if (updatedQuiz.questions[i]._id === req.params.questionID) {
+        for (let i = 0; i <= updatedQuiz.questions.length; i++) {
+            console.log(updatedQuiz.questions[i], req.params.questionID)
+            if (updatedQuiz.questions[i] === req.params.questionID) {
                 console.log("question found! moving question UP...")
 
-                let currQuestion = JSON.parse(JSON.stringify(updatedQuiz.questions)[i]);
-                let quizUP = JSON.parse(JSON.stringify(updatedQuiz.questions)[i - 1]);
+                let currQuestion = updatedQuiz.questions[i];
+
+                let aboveQuestion = updatedQuiz.questions[i - 1];
 
                 updatedQuiz.questions.splice(i - 1, 1, currQuestion);
-                updatedQuiz.question.splice(i, 1, quizUP);
+                updatedQuiz.questions.splice(i, 1, aboveQuestion);
 
+                console.log("question moved")
                 //replace the quiz with updatedQuiz
                 let response = await Quiz_Collection.findOneAndReplace(
                     { _id: req.params.id },
@@ -205,6 +209,49 @@ router.post("/:id/move-question-up/:questionID/", async (req, res) => {
                 }
                 else {
                     return res.status(400).json({ error: "Question cannot be moved UP" })
+                }
+
+            }
+        }
+    } catch (error) {
+        return res.status(400).json({
+            error: error.message
+        })
+    }
+})
+
+//move question down
+
+router.get("/:id/move-question-down/:questionID/", async (req, res) => {
+    //find Quiz
+    console.log("finding Quiz...")
+    try {
+        let existingQuiz = await Quiz_Collection.findById(req.params.id);
+
+        let updatedQuiz = JSON.parse(JSON.stringify(existingQuiz));
+        for (let i = 0; i <= updatedQuiz.questions.length; i++) {
+            console.log(updatedQuiz.questions[i], req.params.questionID)
+            if (updatedQuiz.questions[i] === req.params.questionID) {
+                console.log("question found! moving question DOWN...")
+
+                let currQuestion = updatedQuiz.questions[i];
+
+                let bellowQuestion = updatedQuiz.questions[i + 1];
+
+                updatedQuiz.questions.splice(i + 1, 1, currQuestion);
+                updatedQuiz.questions.splice(i, 1, bellowQuestion);
+
+                console.log("question moved")
+                //replace the quiz with updatedQuiz
+                let response = await Quiz_Collection.findOneAndReplace(
+                    { _id: req.params.id },
+                    updatedQuiz
+                )
+                if (response) {
+                    return res.status(200).json({ message: "Question was moved DOWN" })
+                }
+                else {
+                    return res.status(400).json({ error: "Question cannot be moved DOWN" })
                 }
 
             }
