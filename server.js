@@ -12,6 +12,12 @@ const httpServer = app.listen(process.env.PORT || 8000, () => {
     console.log("Express is running on port " + port);
 })
 
+//socket io
+const io = require("socket.io")(httpServer, {
+    cors: {
+        origin: "*",
+    }
+})
 //connect to Mongoose
 
 const mongoose = require("mongoose");
@@ -49,12 +55,7 @@ app.use("/report", reportRouter)
 let rooms = [];
 
 
-//socket io
-const io = require("socket.io")(httpServer, {
-    cors: {
-        origin: "*",
-    }
-})
+
 
 io.on("connection", (socket) => {
     console.log("Client Connected " + socket.id);
@@ -111,10 +112,10 @@ io.on("connection", (socket) => {
 
                     io.to(data.nanoID).emit("student-connected", room)
 
-                    return ;
+                    return;
 
                 }
-            } 
+            }
         }
         console.log("room not found!");
         io.to(data.clientID).emit("room-not-available", data)
