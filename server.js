@@ -111,9 +111,15 @@ io.on("connection", (socket) => {
 
                     io.to(data.nanoID).emit("student-connected", room)
 
+                    return ;
+
                 }
-            }
+            } 
         }
+        console.log("room not found!");
+        io.to(data.clientID).emit("room-not-available", data)
+        return;
+
     })
 
 
