@@ -189,5 +189,6 @@ Estimated Time: 1 Hour
 - 8:30am - added a socket to verify room status.
 - 8:37am - Deploying on Heroku
 - 8:44am - Connecting frontend to Heroku
+- 9:51am - Switched to render.com
 
 
