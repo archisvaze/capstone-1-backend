@@ -41,6 +41,14 @@ app.use(cors());
 const authRouter = require("./routes/auth/auth_routes")
 app.use("/auth", authRouter);
 
+app.get("/", async (req, res) => {
+    try {
+        return res.status(200).json({ message: "Connected" })
+    } catch (error) {
+        return res.status(400).json({ error })
+    }
+})
+
 //call middleware
 
 app.use(authenticateMiddleware)
